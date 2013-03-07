@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Countdown</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="countdown.js"></script>
+  </head>
+  <body>
+    <div class="content">
+  	 <div class="countdown-box">
+        <div class="team-logo">
+          <img src="cutups/hullCityLogo.jpg" alt="cityLogo"/>
+        </div>
+        <div class="match-details">
+          <div class="match-details-teams">
+            Aston Villa v <br />
+            Hull City
+          </div>
+          <div class="match-details-league">
+            <a href="#"><img src="cutups/PremierLeagueLogo.jpg" alt="PremierLeagueLogo"/></a>
+          </div>
+          <div class="match-details-info">
+            Villa Park <br />
+            <img src="cutups/dateIcon.gif" alt=""/> 12th Sept. 3pm
+          </div>    
+        </div>
+        
+        <div id="countdown-inner">
+          <div id="cd-top">
+            <img src="cutups/clock.gif" alt=""/>
+            Countdown until kick-off
+          </div>
+          <div id="cd-digits">
+            <div class="cd-digit">
+              <div id="cd-days">
+                00
+              </div>
+              <div class="cd-info">
+                days
+              </div>
+            </div>
+            
+            <div class="cd-digit">
+              <div id="cd-hours">
+                00
+              </div>
+              <div class="cd-info">
+                hours
+              </div>
+            </div> 
+            
+            <div class="cd-digit">
+              <div id="cd-mins">
+                00
+              </div>
+              <div class="cd-info">
+                mins
+              </div>
+            </div> 
+            
+            <div class="cd-digit cd-digit-right">
+              <div id="cd-secs">
+                00
+              </div>
+              <div class="cd-info">
+                secs
+              </div>
+            </div> 
+                
+          </div>
+        </div>
+        
+        <a href="#">
+          <div id="countdown-live">
+            <div id="countdown-live-first">
+              LIVE COVERAGE NOW ON <img src="cutups/microphone.jpg"  alt=""/>
+            </div>
+            <div class="smaller">
+              click here to listen to live commentary
+            </div>     
+          </div>    
+        </a> 
+       <!-- COUNTDOWN SCRIPT 
+              to set 10 seconds after load set timer to "tenSeconds"
+              argument of runCountdown is Unix timestamp in seconds
+              for 23rd Feb. 11:00 GMT use: 1361617200
+              
+              To run the script properly, it should be declared after columns
+        -->
+        <script type="text/javascript">
+        runCountdown(1361617200);
+        </script> 
+        <div class="links">
+          <a href="#">Preview</a>
+          <a href="#">Hospitality</a>
+          <a href="#">Buy tickets</a>
+        </div>
+        <div class="ad-banner">
+          <img src="cutups/betAdvert.gif" alt="BET Advertisment"/>
+        </div>
+      </div>
+      <div class="full-fixture">
+         <a href="#">FULL FIXTURE LIST <img src="cutups/maroonArrow.gif" alt=""/></a>
+         <div class="smaller"><a href="#">click here</a></div>
+      </div>
+    </div> 
+  </body>
+</html>

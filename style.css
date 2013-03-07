@@ -1,0 +1,120 @@
+.content {
+  float: left;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+.countdown-box {
+  background-color: #f2f2f2;
+  border: 1px #c0c0c0 solid;
+  padding: 10px;
+  margin: 0px;
+}
+.team-logo {
+  float: left;
+  margin: 10px;
+}
+.match-details {
+margin-bottom: 5px;
+}
+.match-details-teams {
+  color: #600030;
+  font-size: 16px;
+}
+.match-details-league img{
+  border: 0;
+}
+.match-details-info {
+  color: #555555;
+  font-size: 12px;
+}
+.links {
+  margin: 10px;
+  text-align: center;
+}
+.links a {
+  font-size: 12px;
+  color: #ffffff;
+  background-color: #600030;
+  padding: 2px 18px 2px 5px;
+  text-decoration: none;
+  background-image: url('cutups/whiteArrow.gif');
+  background-position: 92%;
+  background-repeat: no-repeat;
+  margin: 0 1px;
+}
+.full-fixture {
+  height: 40px;
+  font-size: 17px;
+  background-image: url('cutups/numberBkg.gif');
+  text-align: center;
+  width: 100%;
+  padding-top: 3px;
+}
+.full-fixture a {
+  color: #600030;
+  text-decoration: none;
+}
+.smaller {
+  font-size: 12px;
+  margin-top: -4px;
+}
+.ad-banner img {
+  border: 1px #c0c0c0 solid;
+}
+
+#countdown-inner {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px #c0c0c0 solid;
+}
+#cd-top {
+  color: #ffffff;
+  background-color: #600030;
+  font-size: 12px;
+  padding: 3px 5px;
+}
+#cd-top img {
+  margin-right: 2px;
+}
+#cd-digits {
+width: 100%;
+overflow: auto;
+}
+.cd-digit {
+  font-size: 35px;
+  color: #600030;
+  background-image: url('cutups/numberBkg.gif');
+  text-align: center;
+  float: left;
+  height: 57px;
+  padding: 5px 10px 0 10px;
+  margin-right: 8px;
+
+}
+.cd-digit-right {
+  margin-right: 0;
+}
+.cd-info {
+  font-size: 12px;
+  margin-top: -8px;
+}
+#countdown-live {
+  display: none;
+  width: 280px;
+  height: 107px;
+  background-color: #600030;
+  color: #ffffff;
+  text-align: center;
+  overflow: auto;
+}
+#countdown-live-first {
+  color: #ffffff;
+  text-decoration: none;
+  margin-top: 35px;
+}
