@@ -5,11 +5,11 @@ var tenSeconds = new Date();
 tenSeconds.setTime(+5);
 
 (function( $ ) {
-  $.fn.countdown = function(inDate, liveLink) {
+  $.fn.countdown = function(inDate, onCountDownEnd, onCountDownChange) {
     var inTime = Date.parse(inDate);
     var time = Date.parse(new Date());
     var divs, count, live;
-    $content = $(this);
+    var $content = $(this);
     var interval = setInterval(loop, 1000);
 
     loop();
@@ -26,10 +26,16 @@ tenSeconds.setTime(+5);
       }
       else
       {
-        live = getLive(liveLink);
-        $content.html(live);
+        if (onCountDownEnd && typeof(onCountDownEnd) === "function") 
+        {  
+          onCountDownEnd();  
+        }  
         clearInterval(interval);
       }
+      if (onCountDownChange && typeof(onCountDownChange) === "function") 
+        {  
+          onCountDownChange();  
+        }  
     }
 
   }
@@ -37,10 +43,20 @@ tenSeconds.setTime(+5);
 
 function getDivs(d, h, m, s)
 {
-  this.daysDiv = '<div class="daysDiv">'+d+'</div>';
-  this.hoursDiv = '<div class="hoursDiv">'+h+'</div>';
-  this.minsDiv = '<div class="minsDiv">'+m+'</div>';
-  this.secsDiv = '<div class="secsDiv">'+s+'</div>';
+  if (d.toString().length == 1) this.daysZero = '0'; else this.daysZero = '';
+  if (h.toString().length == 1) this.hoursZero = '0'; else this.hoursZero = '';
+  if (m.toString().length == 1) this.minsZero = '0'; else this.minsZero = '';
+  if (s.toString().length == 1) this.secsZero = '0'; else this.secsZero = '';
+
+  if (d == 1) this.dText='day'; else this.dText='days';
+  if (h == 1) this.hText='hour'; else this.hText='hours';
+  if (m == 1) this.mText='min'; else this.mText='mins';
+  if (s == 1) this.sText='sec'; else this.sText='secs';
+
+  this.daysDiv = '<div class="cd-digit">'+ this.daysZero + d +'<span class="cd-info">'+ this.dText +'</div>';
+  this.hoursDiv = '<div class="cd-digit">'+ this.hoursZero + h +'<span class="cd-info">'+ this.hText +'</div>';
+  this.minsDiv = '<div class="cd-digit">'+ this.minsZero + m +'<span class="cd-info">'+ this.mText +'</div>';
+  this.secsDiv = '<div class="cd-digit-right cd-digit">'+ this.secsZero + s +'<span class="cd-info">'+ this.sText +'</div>';
   return this.daysDiv + this.hoursDiv + this.minsDiv + this.secsDiv;
 }
 
@@ -52,17 +68,8 @@ function countTimes(timeTo)
   this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
 }
 
-function getLive(link)
+function getLive(link, divId)
 {
-  return '<a href="'+ link +'"><h3>Live coverage now on</h3><p>click here to listen to live commentary</p></a>';
-}
-
-
-
-function runCountdown(getTime)
-{
- matchTime = getTime*1000; // javascript parse function returns Unix timestamp in microseconds
- 
- CD = setInterval(count,1000);
- count();  
+  console.log(divId);
+  $(divId).html('<a href="'+ link +'"><h3>Live coverage now on</h3><p>click here to listen to live commentary</p></a>');
 }

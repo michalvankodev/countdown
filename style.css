@@ -29,10 +29,12 @@ margin-bottom: 5px;
 .match-details-league img{
   border: 0;
 }
-.match-details-info {
+.match-details-info h3{
   color: #555555;
   font-size: 12px;
+  margin:0;
 }
+
 .links {
   margin: 10px;
   text-align: center;
@@ -57,22 +59,52 @@ margin-bottom: 5px;
   padding-top: 3px;
 }
 .full-fixture a {
+  display: block;
+  background: url('cutups/maroonArrow.gif') no-repeat 80%;
+
   color: #600030;
   text-decoration: none;
 }
 .smaller {
   font-size: 12px;
   margin-top: -4px;
+  display: block;
 }
 .ad-banner img {
   border: 1px #c0c0c0 solid;
 }
 
-#countdown-inner {
+#countdown-inner1 {
+  display: block;
+  overflow: auto;
   padding: 10px;
   background-color: #ffffff;
   border: 1px #c0c0c0 solid;
 }
+#countdown-inner2 {
+  display: block;
+  overflow: auto;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px #c0c0c0 solid;
+}
+#countdown-inner1 h1 {
+  color: #ffffff;
+  background: url('cutups/clock.gif') no-repeat 3%;
+  background-color: #600030;
+  font-size: 12px;
+  padding: 3px 5px 5px 30px;
+  vertical-align: baseline;
+    margin:0;
+
+}
+#countdown-inner2 h1 {
+  color: #ffffff;
+  background-color: #ff5555;
+  font-size: 12px;
+  padding: 3px 5px;
+}
+
 #cd-top {
   color: #ffffff;
   background-color: #600030;
@@ -86,7 +118,8 @@ margin-bottom: 5px;
 width: 100%;
 overflow: auto;
 }
-.cd-digit {
+
+#count1 .cd-digit {
   font-size: 35px;
   color: #600030;
   background-image: url('cutups/numberBkg.gif');
@@ -94,15 +127,31 @@ overflow: auto;
   float: left;
   height: 57px;
   padding: 5px 10px 0 10px;
-  margin-right: 8px;
+  margin-right: 10px;
 
 }
-.cd-digit-right {
-  margin-right: 0;
+
+#count2 .cd-digit {
+  font-size: 35px;
+  color: #405104;
+  background-image: url('cutups/numberBkg.gif');
+  text-align: center;
+  float: left;
+  height: 57px;
+  padding: 5px 10px 0 10px;
+  margin-right: 5px;
+
 }
+
+#count1 .cd-digit:last-child {
+ margin-right: 0;
+}
+
 .cd-info {
   font-size: 12px;
   margin-top: -8px;
+  display: block;
+
 }
 #countdown-live {
   display: none;
@@ -117,4 +166,15 @@ overflow: auto;
   color: #ffffff;
   text-decoration: none;
   margin-top: 35px;
+}
+#count1 {
+  display: block;
+}
+
+time {
+  display: block;
+  background: url('cutups/dateIcon.gif') no-repeat left center;
+  padding: 3px 0 0 15px;
+  margin-left: 90px;
+  font-size: 12px;
 }

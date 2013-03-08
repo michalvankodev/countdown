@@ -22,31 +22,22 @@
             <a href="#"><img src="cutups/PremierLeagueLogo.jpg" alt="PremierLeagueLogo"/></a>
           </div>
           <div class="match-details-info">
-            Villa Park <br />
-            <img src="cutups/dateIcon.gif" alt=""/> 12th Sept. 3pm
+            <h3> Villa Park </h3>
+            <time datetime="2013-09-12T15:00">12th Sept. 3pm</time>
           </div>    
         </div>
         
-        <div id="countdown-inner">
-          <div id="cd-top">
-            <img src="cutups/clock.gif" alt=""/>
-            Countdown until kick-off
-          </div>
-          <div id="count1">
-            
-          </div>
+        <div id="countdown-inner1">
+            <h1>Countdown until kick-off</h1>
+          <div id="count1"></div>
+
         </div>
-        
-        <a href="#">
-          <div id="countdown-live">
-            <div id="countdown-live-first">
-              LIVE COVERAGE NOW ON <img src="cutups/microphone.jpg"  alt=""/>
-            </div>
-            <div class="smaller">
-              click here to listen to live commentary
-            </div>     
-          </div>    
-        </a> 
+
+         <div id="countdown-inner2">
+            <h1>Countdown until kick-off 2</h1>
+          <div id="count2"></div>
+
+        </div>
        <!-- COUNTDOWN SCRIPT 
               to set 10 seconds after load set timer to "tenSeconds"
               argument of runCountdown is Unix timestamp in seconds
@@ -55,7 +46,9 @@
               To run the script properly, it should be declared after columns
         -->
         <script type="text/javascript">
-        $('#count1').countdown(new Date(2013, 2, 8, 9, 29, 0), "#");
+        $('#count1').countdown(new Date(2013, 2, 8, 14, 50, 0), getLive("#", "#countdown-inner13"));
+        $('#count2').countdown(new Date(2013, 2, 8, 14, 55, 35), getLive("#", "#countdown-inner12"));
+
         </script> 
         <div class="links">
           <a href="#">Preview</a>
@@ -67,8 +60,9 @@
         </div>
       </div>
       <div class="full-fixture">
-         <a href="#">FULL FIXTURE LIST <img src="cutups/maroonArrow.gif" alt=""/></a>
-         <div class="smaller"><a href="#">click here</a></div>
+         <a href="#">FULL FIXTURE LIST
+         <span class="smaller">click here</span></a>
+      </div>
 
       </div>
     </div> 
