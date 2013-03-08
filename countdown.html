@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Countdown</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="countdown.js"></script>
   </head>
   <body>
@@ -31,43 +32,8 @@
             <img src="cutups/clock.gif" alt=""/>
             Countdown until kick-off
           </div>
-          <div id="cd-digits">
-            <div class="cd-digit">
-              <div id="cd-days">
-                00
-              </div>
-              <div class="cd-info">
-                days
-              </div>
-            </div>
+          <div id="count1">
             
-            <div class="cd-digit">
-              <div id="cd-hours">
-                00
-              </div>
-              <div class="cd-info">
-                hours
-              </div>
-            </div> 
-            
-            <div class="cd-digit">
-              <div id="cd-mins">
-                00
-              </div>
-              <div class="cd-info">
-                mins
-              </div>
-            </div> 
-            
-            <div class="cd-digit cd-digit-right">
-              <div id="cd-secs">
-                00
-              </div>
-              <div class="cd-info">
-                secs
-              </div>
-            </div> 
-                
           </div>
         </div>
         
@@ -89,7 +55,7 @@
               To run the script properly, it should be declared after columns
         -->
         <script type="text/javascript">
-        runCountdown(1361617200);
+        $('#count1').countdown(new Date(2013, 2, 8, 9, 29, 0), "#");
         </script> 
         <div class="links">
           <a href="#">Preview</a>
@@ -103,6 +69,7 @@
       <div class="full-fixture">
          <a href="#">FULL FIXTURE LIST <img src="cutups/maroonArrow.gif" alt=""/></a>
          <div class="smaller"><a href="#">click here</a></div>
+
       </div>
     </div> 
   </body>

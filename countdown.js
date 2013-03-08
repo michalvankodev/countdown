@@ -1,72 +1,68 @@
 // countdown script
 
 // allows to run script for 10 seconds
-var tenSeconds = (Date.parse(new Date())+10000)/1000;
+var tenSeconds = new Date();
+tenSeconds.setTime(+5);
 
-var timeTo;
-var days;
-var hours;
-var mins;
-var secs;
-var matchTime;
-var CD
+(function( $ ) {
+  $.fn.countdown = function(inDate, liveLink) {
+    var inTime = Date.parse(inDate);
+    var time = Date.parse(new Date());
+    var divs, count, live;
+    $content = $(this);
+    var interval = setInterval(loop, 1000);
+
+    loop();
+    function loop()
+    {
+      time = Date.parse(new Date());
+      var timeTo = inTime - time;
+
+      if (timeTo > 0)
+      {
+        count = new countTimes(timeTo);
+        divs = getDivs(count.days, count.hours, count.mins, count.secs);
+        $content.html(divs);
+      }
+      else
+      {
+        live = getLive(liveLink);
+        $content.html(live);
+        clearInterval(interval);
+      }
+    }
+
+  }
+})( jQuery );
+
+function getDivs(d, h, m, s)
+{
+  this.daysDiv = '<div class="daysDiv">'+d+'</div>';
+  this.hoursDiv = '<div class="hoursDiv">'+h+'</div>';
+  this.minsDiv = '<div class="minsDiv">'+m+'</div>';
+  this.secsDiv = '<div class="secsDiv">'+s+'</div>';
+  return this.daysDiv + this.hoursDiv + this.minsDiv + this.secsDiv;
+}
+
+function countTimes(timeTo)
+{
+  this.days = parseInt( timeTo / (1000*60*60*24) ); // time / oneDay
+  this.hours = parseInt( (timeTo-this.days*(1000*60*60*24)) / (1000*60*60) ); // ... oneHour
+  this.mins = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)) / (1000*60) );  //  ... oneMin
+  this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
+}
+
+function getLive(link)
+{
+  return '<a href="'+ link +'"><h3>Live coverage now on</h3><p>click here to listen to live commentary</p></a>';
+}
+
+
+
 function runCountdown(getTime)
 {
  matchTime = getTime*1000; // javascript parse function returns Unix timestamp in microseconds
  
  CD = setInterval(count,1000);
  count();  
-}
-
-function count()
-{
-  var counter = countTimer(matchTime);
-  if (counter)
-    returnCounter();
-  else 
-    returnLive();  
-}
-
-function countTimer(getTime)
-{
-  var time = Date.parse(new Date());
-  timeTo = getTime - time;
-  if (timeTo > 0)
-  {
-  days = parseInt( timeTo / (1000*60*60*24) ); // time / oneDay
-  hours = parseInt( (timeTo-days*(1000*60*60*24)) / (1000*60*60) ); // ... oneHour
-  mins = parseInt( (timeTo-days*(1000*60*60*24)-hours*(1000*60*60)) / (1000*60) );  //  ... oneMin
-  secs = parseInt( (timeTo-days*(1000*60*60*24)-hours*(1000*60*60)-mins*(1000*60)) / 1000 ); // ... oneSec
-  
-  console.log(days);
-  console.log(hours);
-  console.log(mins);
-  console.log(secs);
-  return 1;
-  }
-  else 
-  {
-    return 0;
-  }
-}
-
-function returnCounter()
-{
-  if (days.toString().length == 1) daysZero = '0'; else daysZero = '';
-  if (hours.toString().length == 1) hoursZero = '0'; else hoursZero = '';
-  if (mins.toString().length == 1) minsZero = '0'; else minsZero = '';
-  if (secs.toString().length == 1) secsZero = '0'; else secsZero = '';
-
-
-  document.getElementById("cd-days").innerHTML = daysZero + days;
-  document.getElementById("cd-hours").innerHTML = hoursZero + hours;
-  document.getElementById("cd-mins").innerHTML = minsZero + mins;
-  document.getElementById("cd-secs").innerHTML = secsZero + secs;  
-}
-
-function returnLive()
-{
-  window.clearInterval(CD);
-  document.getElementById("countdown-inner").style.display="none";
-  document.getElementById("countdown-live").style.display="block";
 }
