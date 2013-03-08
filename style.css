@@ -105,6 +105,23 @@ margin-bottom: 5px;
   padding: 3px 5px;
 }
 
+.live {
+
+  color: #ffffff;
+  text-align: center;
+  background: url('cutups/microphone.jpg') no-repeat 85% 32% !important;
+  background-color: #600030 !important;
+  font-size: 12px;
+  padding: 3px 5px 5px 30px;
+  vertical-align: baseline;
+  margin:0;
+
+}
+.live a {
+  color: #ffffff;
+
+}
+
 #cd-top {
   color: #ffffff;
   background-color: #600030;

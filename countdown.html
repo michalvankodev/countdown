@@ -46,8 +46,15 @@
               To run the script properly, it should be declared after columns
         -->
         <script type="text/javascript">
-        $('#count1').countdown(new Date(2013, 2, 8, 14, 50, 0), getLive("#", "#countdown-inner13"));
-        $('#count2').countdown(new Date(2013, 2, 8, 14, 55, 35), getLive("#", "#countdown-inner12"));
+        $('#count1').countdown(tenSeconds,  function()
+          {
+            getLive("#", "#countdown-inner1");
+          } );
+
+        $('#count2').countdown(new Date(2013, 2, 8, 17, 35, 35),  function()
+          {
+            getLive("#", "#countdown-inner21");
+          } );
 
         </script> 
         <div class="links">

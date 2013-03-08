@@ -1,8 +1,7 @@
 // countdown script
 
 // allows to run script for 10 seconds
-var tenSeconds = new Date();
-tenSeconds.setTime(+5);
+var tenSeconds = new Date(new Date().getTime()+3000);
 
 (function( $ ) {
   $.fn.countdown = function(inDate, onCountDownEnd, onCountDownChange) {
@@ -70,6 +69,6 @@ function countTimes(timeTo)
 
 function getLive(link, divId)
 {
-  console.log(divId);
   $(divId).html('<a href="'+ link +'"><h3>Live coverage now on</h3><p>click here to listen to live commentary</p></a>');
+  $(divId).addClass("live")
 }
