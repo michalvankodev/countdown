@@ -4,74 +4,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Countdown</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="countdown.js"></script>
   </head>
   <body>
-    <div class="content">
-  	 <div class="countdown-box">
-        <div class="team-logo">
-          <img src="cutups/hullCityLogo.jpg" alt="cityLogo"/>
-        </div>
-        <div class="match-details">
-          <div class="match-details-teams">
-            Aston Villa v <br />
-            Hull City
-          </div>
-          <div class="match-details-league">
-            <a href="#"><img src="cutups/PremierLeagueLogo.jpg" alt="PremierLeagueLogo"/></a>
-          </div>
-          <div class="match-details-info">
-            <h3> Villa Park </h3>
-            <time datetime="2013-09-12T15:00">12th Sept. 3pm</time>
-          </div>    
-        </div>
+    
+  	 <section id="countdown-box">
+        <header class="match-details">
+          <img id="teamLogo" src="cutups/hullCityLogo.jpg" alt="cityLogo"/>
+          <h1>Aston Villa v <br /> Hull City </h1>
+          <a href="#"><img class="noborder" src="cutups/PremierLeagueLogo.jpg" alt="PremierLeagueLogo"/></a>
+          <h3> Villa Park </h3>
+          <time datetime="2013-09-12T15:00">12th Sept. 3pm</time>    
+        </header>
         
-        <div id="countdown-inner1">
+        <aside id="countdown-inner1">
             <h1>Countdown until kick-off</h1>
           <div id="count1"></div>
+        </aside>
 
-        </div>
-
-         <div id="countdown-inner2">
-            <h1>Countdown until kick-off 2</h1>
-          <div id="count2"></div>
-
-        </div>
-       <!-- COUNTDOWN SCRIPT 
-              to set 10 seconds after load set timer to "tenSeconds"
-              argument of runCountdown is Unix timestamp in seconds
-              for 23rd Feb. 11:00 GMT use: 1361617200
-              
-              To run the script properly, it should be declared after columns
-        -->
-        <script type="text/javascript">
-        $('#count1').countdown(tenSeconds,  function()
-          {
-            getLive("#", "#countdown-inner1");
-          } );
-
-        $('#count2').countdown(new Date(2013, 2, 8, 17, 35, 35),  function()
-          {
-            getLive("#", "#countdown-inner21");
-          } );
-
-        </script> 
         <div class="links">
           <a href="#">Preview</a>
           <a href="#">Hospitality</a>
           <a href="#">Buy tickets</a>
         </div>
+
         <div class="ad-banner">
           <img src="cutups/betAdvert.gif" alt="BET Advertisment"/>
         </div>
-      </div>
-      <div class="full-fixture">
+      
+
+     </section>
+      <footer>
          <a href="#">FULL FIXTURE LIST
          <span class="smaller">click here</span></a>
-      </div>
-
-      </div>
-    </div> 
+      </footer>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="countdown.js"></script>
+    <script type="text/javascript" src="applications.js"></script>
   </body>
 </html>

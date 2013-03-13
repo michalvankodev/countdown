@@ -1,7 +1,7 @@
 // countdown script
 
 // allows to run script for 10 seconds
-var tenSeconds = new Date(new Date().getTime()+3000);
+var tenSeconds = new Date(new Date().getTime()+15000);
 
 (function( $ ) {
   $.fn.countdown = function(inDate, onCountDownEnd, onCountDownChange) {
