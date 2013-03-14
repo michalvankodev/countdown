@@ -1,9 +1,9 @@
-$('#count1').countdown(tenSeconds,  function()
-          {
-            getLive("#", "#countdown-inner1");
-          } );
+var tenSeconds = new Date(new Date().getTime()+15000);
 
-$('#count2').countdown(new Date(2013, 2, 8, 17, 35, 35),  function()
-          {
-            getLive("#", "#countdown-inner21");
-          } );
+$('#count1').countdown();
+
+// $('#count2').countdown(new Date(2013, 2, 8, 17, 35, 35),  function()
+//           {
+//             getLive("#", "#countdown-inner21");
+//           } );
+

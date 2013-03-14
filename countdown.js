@@ -1,75 +1,128 @@
-// countdown script
+(function (window, document, $) {
+  'use strict';
 
-// allows to run script for 10 seconds
-var tenSeconds = new Date(new Date().getTime()+15000);
-
-(function( $ ) {
-  $.fn.countdown = function(inDate, onCountDownEnd, onCountDownChange) {
-    var inTime = Date.parse(inDate);
-    var time = Date.parse(new Date());
-    var divs, count, live;
-    var $content = $(this);
-    var interval = setInterval(loop, 1000);
-
-    loop();
-    function loop()
-    {
-      time = Date.parse(new Date());
-      var timeTo = inTime - time;
-
-      if (timeTo > 0)
+  /**
+   * Countdown jQuery plugin
+   *
+   * Sample Usage:
+   *
+   * $('.countdown').countdown();
+   * $('.countdown').countdown('destroy');
+   *
+   * @method
+   * @customOptions
+   *
+   * @return   {object}
+   */
+  $.fn.extend({
+    countdown: function (method, customOptions) {
+      var $content = $(this);
+      var options = 
       {
-        count = new countTimes(timeTo);
-        divs = getDivs(count.days, count.hours, count.mins, count.secs);
-        $content.html(divs);
-      }
-      else
+        dateTo: new Date(new Date().getTime()+15000),
+        dString: 'days',
+        hString: 'hours',
+        mString: 'mins',
+        sString: 'secs',
+
+        dStringSingle: 'day',
+        hStringSingle: 'hour',
+        mStringSingle: 'min',
+        sStringSingle: 'sec',
+
+        onCountDownEnd: false,
+        onCountDownChange: false,
+      };
+
+      var methods;
+
+      options = $.extend(options, customOptions);
+
+      methods = {
+        /**
+        * initializing function
+        */
+        init : function () {
+          return this.each(function () { // Maintaining Chainability
+          loop();
+        
+          });
+        },
+
+        /**
+        * destroy function
+        */
+        destroy : function () {
+
+        }
+      };
+
+      //FUNCTIONS 
+      function loop()
       {
-        if (onCountDownEnd && typeof(onCountDownEnd) === "function") 
-        {  
-          onCountDownEnd();  
-        }  
-        clearInterval(interval);
+        var time = Date.parse(new Date());
+        var inTime = Date.parse(options.dateTo);
+        var timeTo = inTime - time;
+        if (timeTo > 0)
+        {
+          var count = new countTimes(timeTo);
+          var divs = getDivs(count.days, count.hours, count.mins, count.secs);
+          $content.html(divs);
+          setTimeout(loop, 1000);
+        }
+        else
+        {
+          if (options.onCountDownEnd && typeof(options.onCountDownEnd) === "function") 
+          {  
+            options.onCountDownEnd();  
+          }  
+        }
+        if (options.onCountDownChange && typeof(options.onCountDownChange) === "function") 
+          {  
+            options.onCountDownChange();  
+          }  
       }
-      if (onCountDownChange && typeof(onCountDownChange) === "function") 
-        {  
-          onCountDownChange();  
-        }  
+
+      function getDivs(d, h, m, s)
+      {
+        if (d.toString().length == 1) var daysZero = '0'; else var daysZero = '';
+        if (h.toString().length == 1) var hoursZero = '0'; else var hoursZero = '';
+        if (m.toString().length == 1) var minsZero = '0'; else var minsZero = '';
+        if (s.toString().length == 1) var secsZero = '0'; else var secsZero = '';
+
+        if (d == 1) var dText=options.dStringSingle; else var dText=options.dString;
+        if (h == 1) var hText=options.hStringSingle; else var hText=options.hString;
+        if (m == 1) var mText=options.mStringSingle; else var mText=options.mString;
+        if (s == 1) var sText=options.sStringSingle; else var sText=options.sString;
+
+        var daysDiv = '<div class="cd-digit">'+ daysZero + d +'<span class="cd-info">'+ dText +'</div>';
+        var hoursDiv = '<div class="cd-digit">'+ hoursZero + h +'<span class="cd-info">'+ hText +'</div>';
+        var minsDiv = '<div class="cd-digit">'+ minsZero + m +'<span class="cd-info">'+ mText +'</div>';
+        var secsDiv = '<div class="cd-digit-right cd-digit">'+ secsZero + s +'<span class="cd-info">'+ sText +'</div>';
+        return daysDiv + hoursDiv + minsDiv + secsDiv;
+      }
+
+      function countTimes(timeTo)
+      {
+        this.days = parseInt( timeTo / (1000*60*60*24) ); // time / oneDay
+        this.hours = parseInt( (timeTo-this.days*(1000*60*60*24)) / (1000*60*60) ); // ... oneHour
+        this.mins = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)) / (1000*60) );  //  ... oneMin
+        this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
+      }
+
+
+      // methods caller
+      if ( methods[method] ) {
+        // call selected method
+        return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+      } else if ( typeof method === 'object' || ! method ) {
+        // call init
+        return methods.init.apply( this, arguments);
+      } else {
+        // method not found
+        $.error( 'Method ' +  method + ' does not exist on jQuery.countdown plugin' );
+      }
     }
+  });
 
-    function getDivs(d, h, m, s)
-    {
-      if (d.toString().length == 1) this.daysZero = '0'; else this.daysZero = '';
-      if (h.toString().length == 1) this.hoursZero = '0'; else this.hoursZero = '';
-      if (m.toString().length == 1) this.minsZero = '0'; else this.minsZero = '';
-      if (s.toString().length == 1) this.secsZero = '0'; else this.secsZero = '';
-
-      if (d == 1) this.dText='day'; else this.dText='days';
-      if (h == 1) this.hText='hour'; else this.hText='hours';
-      if (m == 1) this.mText='min'; else this.mText='mins';
-      if (s == 1) this.sText='sec'; else this.sText='secs';
-
-      this.daysDiv = '<div class="cd-digit">'+ this.daysZero + d +'<span class="cd-info">'+ this.dText +'</div>';
-      this.hoursDiv = '<div class="cd-digit">'+ this.hoursZero + h +'<span class="cd-info">'+ this.hText +'</div>';
-      this.minsDiv = '<div class="cd-digit">'+ this.minsZero + m +'<span class="cd-info">'+ this.mText +'</div>';
-      this.secsDiv = '<div class="cd-digit-right cd-digit">'+ this.secsZero + s +'<span class="cd-info">'+ this.sText +'</div>';
-      return this.daysDiv + this.hoursDiv + this.minsDiv + this.secsDiv;
-    }
-
-    function countTimes(timeTo)
-    {
-      this.days = parseInt( timeTo / (1000*60*60*24) ); // time / oneDay
-      this.hours = parseInt( (timeTo-this.days*(1000*60*60*24)) / (1000*60*60) ); // ... oneHour
-      this.mins = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)) / (1000*60) );  //  ... oneMin
-      this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
-    }
-
-  }
-})( jQuery );
-
-
-function getLive(link, divId)
-{
-  $(divId).html('<a href="'+ link +'"><h3>Live coverage now on</h3><p>click here to listen to live commentary</p></a>');
-  $(divId).addClass("live")
-}
+}(window, document, jQuery));
