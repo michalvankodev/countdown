@@ -19,6 +19,7 @@
       var $content = $(this);
       var options = 
       {
+
         dateTo: new Date(new Date().getTime()+15000),
         dString: 'days',
         hString: 'hours',
@@ -43,11 +44,19 @@
         * initializing function
         */
         init : function () {
+          
           return this.each(function () { // Maintaining Chainability
           loop();
-        
           });
         },
+
+        stop : function () {
+          return this.each(function () { // Maintaining Chainability
+          $(this).data('stopped', true);
+          });
+        },
+
+
 
         /**
         * destroy function
@@ -58,17 +67,20 @@
       };
 
       //FUNCTIONS 
-      function loop()
+      function loop() 
       {
         var time = Date.parse(new Date());
         var inTime = Date.parse(options.dateTo);
         var timeTo = inTime - time;
-        if (timeTo > 0)
+        if (timeTo >= 0)
         {
           var count = new countTimes(timeTo);
           var divs = getDivs(count.days, count.hours, count.mins, count.secs);
+
           $content.html(divs);
-          setTimeout(loop, 1000);
+          if(!$content.data('stopped')) 
+            setTimeout(loop, 1000);
+
         }
         else
         {
