@@ -19,8 +19,8 @@
       var $content = $(this);
       var options = 
       {
+        dateTo: new Date(new Date().getTime()+5000),
 
-        dateTo: new Date(new Date().getTime()+15000),
         dString: 'days',
         hString: 'hours',
         mString: 'mins',
@@ -46,6 +46,7 @@
         init : function () {
           
           return this.each(function () { // Maintaining Chainability
+          $(this).data('dateTo', options.dateTo);
           loop();
           });
         },
@@ -56,7 +57,12 @@
           });
         },
 
-
+        setTime : function (date) {
+          return this.each(function () { // Maintaining Chainability
+            $(this).data('dateTo', date);
+            console.log($(this).data('dateTo'));
+          });
+        },
 
         /**
         * destroy function
@@ -70,7 +76,7 @@
       function loop() 
       {
         var time = Date.parse(new Date());
-        var inTime = Date.parse(options.dateTo);
+        var inTime = Date.parse($content.data('dateTo'));
         var timeTo = inTime - time;
         if (timeTo >= 0)
         {
@@ -122,6 +128,10 @@
         this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
       }
 
+       function preSetTime(date)
+      {
+        options.dateTo = date;
+      }
 
       // methods caller
       if ( methods[method] ) {
@@ -134,6 +144,8 @@
         // method not found
         $.error( 'Method ' +  method + ' does not exist on jQuery.countdown plugin' );
       }
+
+
     }
   });
 
