@@ -60,7 +60,6 @@
         setTime : function (date) {
           return this.each(function () { // Maintaining Chainability
             $(this).data('dateTo', date);
-            console.log($(this).data('dateTo'));
           });
         },
 
@@ -126,11 +125,6 @@
         this.hours = parseInt( (timeTo-this.days*(1000*60*60*24)) / (1000*60*60) ); // ... oneHour
         this.mins = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)) / (1000*60) );  //  ... oneMin
         this.secs = parseInt( (timeTo-this.days*(1000*60*60*24)-this.hours*(1000*60*60)-this.mins*(1000*60)) / 1000 ); // ... oneSec
-      }
-
-       function preSetTime(date)
-      {
-        options.dateTo = date;
       }
 
       // methods caller
