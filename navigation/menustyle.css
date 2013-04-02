@@ -1,0 +1,112 @@
+body {
+	background-color: rgb(99, 99, 121);
+}
+nav {
+	display: block;
+	font-family: Verdana, sans-serif;
+}
+nav > ul > li {
+	display: block;
+	float: left;
+	width: 150px;
+	height: 50px;
+	background-color: rgb(42, 16, 196);
+	font-size: 20px;
+	margin: 5px 5px;
+	text-align: center;
+	line-height: 42px;
+	border-radius: 13px;
+	border: 3px solid #ffffff;
+	color: #ffffff;
+	z-index: 2;
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(1,5,137,1) 51%,rgba(44,83,158,1) 100%);
+}
+
+#mynavigation:hover {
+   	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: 0;
+	height: 58px;
+	
+
+}
+
+nav > ul > li:hover {
+    background-color: rgb(90, 116, 253);
+   	border: 3px solid #000000;
+   	color: #000000;
+   	-webkit-transition: 0.1s;
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+}
+
+#mynavigation:hover > ul {
+    display: block;
+    border: 3px solid #000000;
+}
+
+#mynavigation > ul {
+	display: none;
+	width: 650px;
+	height: auto;
+	font-size: 14px;
+	margin: 13px 0 0 -171px;
+	background-color: rgba(2,144,239,1);
+	z-index: -1 !important;
+	border: 3px solid #000000;
+	border-radius: 15px;
+    padding: 10px;
+    position: relative;
+
+    /*-webkit-columns: 192px 3;*/
+
+}
+
+#mynavigation > ul > li {
+	display: block;
+	margin: 2px 2px;
+	width: 192px;
+	height: auto;
+	font-size: 15px;
+	z-index: 1;
+	position: relative;
+	border: 2px solid #000000;
+	border-radius: 6px;
+	background: #ffffff;
+	color: rgb(42, 16, 196);
+	line-height: 23px;
+	font-weight: bold;
+
+}
+#mynavigation > ul > li:first-child {
+	margin-top: 0;
+
+	}
+#mynavigation > ul > li:hover {
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+	color: #ffffff;
+	-webkit-transition: 0.1s;
+	border: 2px solid #ffffff;
+}
+
+
+#mynavigation > ul > li > ul > li{
+	/*display: none;*/
+	height: auto; 
+}
+#mynavigation .open {
+	display: block;
+	background-color: #FFFFFF;
+	height: auto; 
+	color: rgb(42, 16, 196);
+}
+#mynavigation .open li{
+	display: block;
+	height: auto; 
+}
+#mynavigation ul > li > ul {
+	display: none;
+	width: 192px;
+	height:auto;
+	margin: 0;
+	padding: 0;
+}

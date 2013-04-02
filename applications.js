@@ -1,7 +1,7 @@
 var someSeconds = new Date(new Date().getTime()+15000);
 
 var options1 = {
-	dateTo: new Date(2013, 2, 19, 11, 23, 0),
+	dateTo: new Date(2013, 2, 22, 17, 23, 0),
     dString: 'dní',
     hString: 'hodín',
     mString: 'minút',
@@ -15,7 +15,7 @@ var options1 = {
 
 var options2 = {
 	onCountDownEnd: function (){
-		$('#count2').countdown('setTime', new Date(2013, 2, 19, 12, 0, 0));
+		$('#count2').countdown('setTime', new Date(2013, 2, 22, 18, 0, 0));
 	},
 };
 $('footer').countdown('init', options2);
