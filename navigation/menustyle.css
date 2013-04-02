@@ -91,30 +91,35 @@ nav > ul > li:hover {
 
 
 #mynavigation > ul > li > ul > li{
-	/*display: none;*/
+	display: block;
 	height: auto; 
 	background: #ffffff;
-	height: auto; 
 	color: rgb(42, 16, 196);
 	font-size: 11px;
+	line-height: 19px;
 }
+#mynavigation > ul > li > ul > li a{
+	display:block;
+	color: #000000;
+	text-decoration: none;
+}
+#mynavigation > ul > li > ul > li a:hover{
+	color: #4444cc;
+	text-decoration: underline;
+}
+
+
 #mynavigation .open {
 	display: block;
-
 }
 #mynavigation .opened {
-	display: block;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
 	-webkit-background-size: 27px;
-	height: auto; 
 	color: #ffffff;
 	border: 2px solid #ffffff;
 }
 
-#mynavigation .open li{
-	display: block;
-	height: auto; 
-}
+
 #mynavigation ul > li > ul {
 	display: none;
 	width: 192px;
