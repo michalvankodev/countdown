@@ -4,6 +4,8 @@ $(document).ready( function()
 	{
 		$('ul', this).slideToggle(200);
 		$('ul', this).toggleClass('open');
+		$(this).toggleClass('opened');
+
 		
 	});
 	

@@ -83,6 +83,7 @@ nav > ul > li:hover {
 	}
 #mynavigation > ul > li:hover {
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+	-webkit-background-size: 27px;
 	color: #ffffff;
 	-webkit-transition: 0.1s;
 	border: 2px solid #ffffff;
@@ -92,13 +93,24 @@ nav > ul > li:hover {
 #mynavigation > ul > li > ul > li{
 	/*display: none;*/
 	height: auto; 
+	background: #ffffff;
+	height: auto; 
+	color: rgb(42, 16, 196);
+	font-size: 11px;
 }
 #mynavigation .open {
 	display: block;
-	background-color: #FFFFFF;
-	height: auto; 
-	color: rgb(42, 16, 196);
+
 }
+#mynavigation .opened {
+	display: block;
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+	-webkit-background-size: 27px;
+	height: auto; 
+	color: #ffffff;
+	border: 2px solid #ffffff;
+}
+
 #mynavigation .open li{
 	display: block;
 	height: auto; 
