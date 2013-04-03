@@ -24,21 +24,19 @@ nav > ul > li {
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(1,5,137,1) 51%,rgba(44,83,158,1) 100%);
 }
 
+nav > ul > li:hover {
+    background-color: rgb(90, 116, 253);
+   	color: #000000;
+   	-webkit-transition: 0.13s;
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
+}
+
 #mynavigation:hover {
    	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	border-bottom: 0;
 	height: 58px;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,0.8) 51%,rgba(2,144,239,0.7) 100%);
-	
-
-}
-
-nav > ul > li:hover {
-    background-color: rgb(90, 116, 253);
-   	color: #000000;
-   	-webkit-transition: 0.13s;
-	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
 }
 
 #mynavigation:hover > div {
@@ -55,10 +53,35 @@ nav > ul > li:hover {
 	z-index: 2 !important;
 	border-radius: 15px;
     padding: 10px;
+    padding-top: 0;
     position: absolute;
-
+    box-shadow: 1px 1px rgba(52, 65, 73, 0.7);
     /*-webkit-columns: 192px 3;*/
 }
+#mynavigation #tools {
+	display: block;
+	text-align: right;
+}
+#mynavigation #tools a {
+	display: block;
+	float: left;
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	margin-left: 5px;
+}
+#mynavigation #tools a:hover {
+	text-decoration: underline;
+}
+#mynavigation #tools input[type="text"] {
+	border-radius: 7px;
+	border: 1px solid #fff;
+	padding: 2px 8px; 
+	font-size: 15px;
+	width: 108px;
+	color: rgb(42, 16, 196);
+}
+
 #mynavigation > div > ul {
 	display: block;
 	float: left;
