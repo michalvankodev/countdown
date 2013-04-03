@@ -4,6 +4,11 @@ body {
 nav {
 	display: block;
 	font-family: Verdana, sans-serif;
+	overflow: hidden;
+	height: 100px;
+}
+nav ul {
+
 }
 nav > ul > li {
 	display: block;
@@ -50,12 +55,12 @@ nav > ul > li:hover {
 	height: auto;
 	font-size: 14px;
 	margin: 13px 0 0 -171px;
-	background-color: rgba(2,144,239,1);
-	z-index: -1 !important;
+	background-color: rgba(2,144,239,0.7);
+	z-index: 2 !important;
 	border: 3px solid #000000;
 	border-radius: 15px;
     padding: 10px;
-    position: relative;
+    position: absolute;
 
     /*-webkit-columns: 192px 3;*/
 
@@ -126,4 +131,7 @@ nav > ul > li:hover {
 	height:auto;
 	margin: 0;
 	padding: 0;
+}
+article {
+	display: block;
 }
