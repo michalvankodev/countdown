@@ -7,9 +7,7 @@ nav {
 	overflow: hidden;
 	height: 100px;
 }
-nav ul {
 
-}
 nav > ul > li {
 	display: block;
 	float: left;
@@ -21,7 +19,6 @@ nav > ul > li {
 	text-align: center;
 	line-height: 42px;
 	border-radius: 13px;
-	border: 3px solid #ffffff;
 	color: #ffffff;
 	z-index: 2;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(1,5,137,1) 51%,rgba(44,83,158,1) 100%);
@@ -32,62 +29,71 @@ nav > ul > li {
 	border-bottom-right-radius: 0;
 	border-bottom: 0;
 	height: 58px;
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,0.8) 51%,rgba(2,144,239,0.7) 100%);
 	
 
 }
 
 nav > ul > li:hover {
     background-color: rgb(90, 116, 253);
-   	border: 3px solid #000000;
    	color: #000000;
    	-webkit-transition: 0.13s;
-	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
 }
 
-#mynavigation:hover > ul {
+#mynavigation:hover > div {
     display: block;
-    border: 3px solid #000000;
 }
 
-#mynavigation > ul {
+#mynavigation > div {
 	display: none;
-	width: 650px;
+	width: auto;
 	height: auto;
 	font-size: 14px;
-	margin: 13px 0 0 -171px;
+	margin: 16px 0 0 -171px;
 	background-color: rgba(2,144,239,0.7);
 	z-index: 2 !important;
-	border: 3px solid #000000;
 	border-radius: 15px;
     padding: 10px;
     position: absolute;
 
     /*-webkit-columns: 192px 3;*/
-
 }
-
-#mynavigation > ul > li {
+#mynavigation > div > ul {
 	display: block;
-	margin: 2px 2px;
+	float: left;
+	margin-right: 20px;
+	height: auto;
+	padding: 0;
+}
+#mynavigation > div > ul:last-child {
+	margin: 0;
+}
+#mynavigation div > ul > li {
+	display: block;
+	margin: 15px 2px;
 	width: 192px;
 	height: auto;
 	font-size: 15px;
 	z-index: 1;
 	position: relative;
-	border: 2px solid #000000;
+	border: 2px solid #ffffff;
 	border-radius: 6px;
 	background: #ffffff;
 	color: rgb(42, 16, 196);
 	line-height: 23px;
 	font-weight: bold;
-
 }
-#mynavigation > ul > li:first-child {
+#mynavigation div > ul > li:last-child {
+	margin-bottom: 0;
+}
+
+#mynavigation div > ul > li:first-child {
 	margin-top: 0;
 
 	}
-#mynavigation > ul > li:hover {
-	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+#mynavigation div > ul > li:hover {
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
 	-webkit-background-size: 27px;
 	color: #ffffff;
 	-webkit-transition: 0.1s;
@@ -95,7 +101,7 @@ nav > ul > li:hover {
 }
 
 
-#mynavigation > ul > li > ul > li{
+#mynavigation div > ul > li > ul > li{
 	display: block;
 	height: auto; 
 	background: #ffffff;
@@ -103,29 +109,28 @@ nav > ul > li:hover {
 	font-size: 11px;
 	line-height: 19px;
 }
-#mynavigation > ul > li > ul > li a{
+#mynavigation div > ul > li > ul > li a{
 	display:block;
 	color: #000000;
 	text-decoration: none;
 }
-#mynavigation > ul > li > ul > li a:hover{
+#mynavigation div > ul > li > ul > li a:hover{
 	color: #4444cc;
 	text-decoration: underline;
 }
-
 
 #mynavigation .open {
 	display: block;
 }
 #mynavigation .opened {
-	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
 	-webkit-background-size: 27px;
 	color: #ffffff;
 	border: 2px solid #ffffff;
 }
 
 
-#mynavigation ul > li > ul {
+#mynavigation div ul > li > ul {
 	display: none;
 	width: 192px;
 	height:auto;
