@@ -8,6 +8,7 @@ $(document).ready( function()
 		$(this).toggleClass('opened');
 	});
 
+	// Expand and Collapse all functions
 	$('#mynavigation #expand').click(function()
 	{
 		if ($(this).attr('id') == 'expand')
@@ -35,4 +36,46 @@ $(document).ready( function()
 
 	});
 
-})
+	// Searchbox function
+	// On every keystroke finds if element is in his child elements
+	// If is - show (expand)!
+	$('#mynavigation #searchbox').keyup(function()
+	{
+		var search = '';
+		search = $(this).val();
+		// expanded reset
+		$('#mynavigation > div > ul > li > ul > li').each(function ()
+		{
+			$(this).parent().parent().data('expanded', false);
+		});
+
+		if(search != "" || search == "Search")
+		{
+			$('#mynavigation > div > ul > li > ul > li').each(function ()
+			{
+				if ($(this).text().toLowerCase().indexOf(search) > -1)
+				{
+					$(this).slideDown(150);
+					$(this).parent().slideDown(200);
+					$(this).parent().parent().addClass('opened');
+					$(this).parent().parent().data('expanded', true);
+				}
+				else 
+				{
+					$(this).slideUp(150);
+					if(!$(this).parent().parent().data('expanded'))
+					{
+						$(this).parent().slideUp(200);
+						$(this).parent().parent().removeClass('opened');
+					}
+				}
+			});
+		}
+		else 
+		{
+			$('#mynavigation > div > ul > li > ul > li').slideDown(150);
+			
+		}
+	});
+
+});
