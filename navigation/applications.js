@@ -1,6 +1,6 @@
 $(document).ready( function()
 {
-	$('#mynavigation > ul > li').click(function()
+	$('#mynavigation > div > ul > li').click(function()
 	{
 		$('ul', this).slideToggle(200);
 		$('ul', this).toggleClass('open');
