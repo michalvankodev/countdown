@@ -35,7 +35,7 @@ nav > ul > li:hover {
     background-color: rgb(90, 116, 253);
    	border: 3px solid #000000;
    	color: #000000;
-   	-webkit-transition: 0.1s;
+   	-webkit-transition: 0.13s;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%,rgba(44,83,158,1) 100%);
 }
 
