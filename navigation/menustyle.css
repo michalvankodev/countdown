@@ -55,7 +55,7 @@ nav > ul > li:hover {
     padding: 10px;
     padding-top: 0;
     position: absolute;
-    box-shadow: 1px 1px rgba(52, 65, 73, 0.7);
+    box-shadow: 2px 2px 3px rgba(52, 65, 73, 0.7);
     /*-webkit-columns: 192px 3;*/
 }
 #mynavigation #tools {
@@ -106,6 +106,7 @@ nav > ul > li:hover {
 	color: rgb(42, 16, 196);
 	line-height: 23px;
 	font-weight: bold;
+	box-shadow: 1px 1px 1px #000;
 }
 #mynavigation div > ul > li:last-child {
 	margin-bottom: 0;

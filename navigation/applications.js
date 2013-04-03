@@ -1,11 +1,13 @@
 $(document).ready( function()
 {
+	// Toggle drop menus in main navigation
 	$('#mynavigation > div > ul > li').click(function()
 	{
 		$('ul', this).slideToggle(200);
 		//$('ul', this).toggleClass('open');
 		$(this).toggleClass('opened');
 	});
+
 	$('#mynavigation #expand').click(function()
 	{
 		if ($(this).attr('id') == 'expand')
