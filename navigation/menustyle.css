@@ -30,7 +30,7 @@ nav > ul > li:hover {
    	color: #000000;
    	-webkit-transition: 0.13s;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
-
+	cursor: pointer;
 }
 
 #mynavigation:hover {
@@ -40,10 +40,12 @@ nav > ul > li:hover {
 	height: 58px;
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,0.8) 51%,rgba(2,144,239,0.7) 100%);
 	box-shadow: 0px -1px 2px #000;
+	cursor: default;
 }
 
 #mynavigation:hover > div {
     display: block;
+    cursor: default;
 }
 
 #mynavigation > div {
@@ -84,7 +86,14 @@ nav > ul > li:hover {
 	width: 108px;
 	color: rgb(42, 16, 196);
 }
-
+#mynavigation #tools input[type="text"]:focus {
+	width: 140px;
+	-webkit-transition: 0.2s;
+}
+#mynavigation #tools input[type="text"]:hover {
+	width: 140px;
+	-webkit-transition: 0.2s;
+}
 #mynavigation > div > ul {
 	display: block;
 	float: left;
@@ -110,6 +119,7 @@ nav > ul > li:hover {
 	line-height: 23px;
 	font-weight: bold;
 	box-shadow: 0px 1px 2px #555;
+	cursor: pointer;
 }
 #mynavigation div > ul > li:last-child {
 	margin-bottom: 0;
@@ -145,18 +155,12 @@ nav > ul > li:hover {
 	color: #4444cc;
 	text-decoration: underline;
 }
-
-#mynavigation .open {
-	display: block;
-}
 #mynavigation .opened {
 	background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(2,141,247,1) 51%,rgba(2,144,239,1) 100%);
 	-webkit-background-size: 27px;
 	color: #ffffff;
 	border: 2px solid #ffffff;
 }
-
-
 #mynavigation div ul > li > ul {
 	display: none;
 	width: 192px;

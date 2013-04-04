@@ -73,7 +73,11 @@ $(document).ready( function()
 		}
 		else 
 		{
+			// if search is cleared collapse all items
+			// if open all links there were hidden
 			$('#mynavigation > div > ul > li > ul > li').slideDown(150);
+			$('#mynavigation > div > ul > li > ul').slideUp(200);
+			$('#mynavigation > div > ul > li').removeClass('opened');
 			
 		}
 	});
