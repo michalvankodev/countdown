@@ -39,8 +39,13 @@ $(document).ready( function()
 	// Searchbox function
 	// On every keystroke finds if element is in his child elements
 	// If is - show (expand)!
-	$('#mynavigation #searchbox').keyup(function()
+	$('#mynavigation #searchbox').keyup(function(event)
 	{
+		// on escape delete search input
+		if(event.which == '27')
+		{
+			$(this).val('');
+		}
 		var search = '';
 		search = $(this).val();
 		// expanded reset
