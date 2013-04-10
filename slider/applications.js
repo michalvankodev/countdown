@@ -7,7 +7,7 @@ $(document).ready(function()
 	var slider = $('#myslider');
 	// Slider options
 	var sliderOptions = {
-		speed: 300,
+		speed: 500,
 		slideMargin: 100,
 		auto: true,
 		autoHover: true,
@@ -16,7 +16,8 @@ $(document).ready(function()
 		pagerSelector: '#sliderpager',
 		nextSelector: '#slidernext',
 		prevSelector: '#sliderprev',
-
+		nextText: '>',
+  		prevText: '<',
 	};
 
 	$.ajax('sliderdata.xml').done(function(data)
@@ -72,7 +73,7 @@ $(document).ready(function()
 			$time = $('<time></time>',
 			{
 				'datetime': jsonDate,
-				text: dateString,
+				text: 'Date: ' + dateString,
 			});
 			// create countdown div element and start countdown
 			var $countdown = $('<div></div',
@@ -82,10 +83,11 @@ $(document).ready(function()
 			});
 
 			// Text to display after countdown ends
-			var $liveText = $('<div></div>',
+			var $liveText = $('<a></a>',
 			{
 				html: 'LIVE ! <span class="info">Watch now</span>',
 				'class': 'countdownlive',
+				'href': '#',
 			});
 
 			// set options for countdown
