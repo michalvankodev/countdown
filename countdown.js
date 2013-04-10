@@ -91,7 +91,7 @@
         {
           if (options.onCountDownEnd && typeof(options.onCountDownEnd) === "function") 
           {  
-            options.onCountDownEnd();  
+            options.onCountDownEnd.call($content);  
           }  
         }
         if (options.onCountDownChange && typeof(options.onCountDownChange) === "function") 

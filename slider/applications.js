@@ -1,31 +1,30 @@
 $(document).ready(function()
-{
+{	
 	// AJAX call for matches for slider
-
-	var eventXml;
-	//Define slider
-	var slider = $('#myslider');
-	// Slider options
-	var sliderOptions = {
-		speed: 500,
-		slideMargin: 100,
-		auto: true,
-		autoHover: true,
-		pause: 5000,
-		pagerType: 'short',
-		pagerSelector: '#sliderpager',
-		nextSelector: '#slidernext',
-		prevSelector: '#sliderprev',
-		nextText: '>',
-  		prevText: '<',
-	};
-
 	$.ajax('sliderdata.xml').done(function(data)
 	{
 		// to run it you'll need to use --allow-file-access-from-files flag ! (chrome)
 		// get XML
-		eventXml = $.parseXML(data);
+		var eventXml = $.parseXML(data);
 		jxml = $('event', eventXml);
+	
+		//Define slider
+		var slider = $('#myslider');
+		// Slider options
+		var sliderOptions = {
+			speed: 500,
+			slideMargin: 100,
+			auto: true,
+			autoHover: true,
+			pause: 5000,
+			pagerType: 'short',
+			pagerSelector: '#sliderpager',
+			nextSelector: '#slidernext',
+			prevSelector: '#sliderprev',
+			nextText: '>',
+	  		prevText: '<',
+		};
+
 		
 		// For first five elements make countdowns
 		for (var i = 0; i < 5 && i < jxml.length; i++)
@@ -47,7 +46,7 @@ $(document).ready(function()
 
 
 			// list item to add
-			var $listItem = $('<div></div>',
+			var $listItem = $('<div>',
 			{
 				'class': 'sliderinner',
 			});
@@ -58,10 +57,9 @@ $(document).ready(function()
 			});
 
 			//additional info
-			var $info = $('<span></span>');
+			var $info = $('<span>');
 			if (matchText[1])
 			{
-				console.log('existuje');
 				$info.text(matchText[1]);
 			}
 			else 
@@ -70,25 +68,29 @@ $(document).ready(function()
 				$info = $([]);
 			}
 
-			$time = $('<time></time>',
+			$time = $('<time>',
 			{
 				'datetime': jsonDate,
 				text: 'Date: ' + dateString,
 			});
 			// create countdown div element and start countdown
-			var $countdown = $('<div></div',
+			var $countdown = $('<div>',
 			{	
 				'id': 'count'+i,
 				'class': 'countdown',
 			});
 
 			// Text to display after countdown ends
-			var $liveText = $('<a></a>',
+			var $liveText = $('<a>',
 			{
 				html: 'LIVE ! <span class="info">Watch now</span>',
 				'class': 'countdownlive',
 				'href': '#',
 			});
+
+			// append elements to list
+			$listItem.append($header, $info, $time, $countdown, $liveText);
+			
 
 			// set options for countdown
 			var cOptions =
@@ -106,20 +108,23 @@ $(document).ready(function()
 		        // SET element to display after countdown ends
 		        onCountDownEnd: function()
 			    {
-			    	$countdown.hide();
-			    	$liveText.show();
+					$(this).hide();
+					$('.countdownlive', $(this).parent()).show();
 			    }
 			}
+
 			// Start countdown
 			$countdown.countdown('init', cOptions);
 
-			// append elements to list
-			$listItem.append($header, $info, $time, $countdown, $liveText);
+			
 			
 			// add new match into slider
 			slider.append($listItem);
 
 		}
+		// Start slider
 		$('.bxslider').bxSlider(sliderOptions);
+
+
 	});
 });
