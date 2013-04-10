@@ -1,8 +1,21 @@
 body {
 	background-color: rgb(111, 90, 90);
 }
-aside {
+#countdownslider {
 	margin: 20px auto;
 	width: 200px;
 	background-color: #ddddfd;
+	height: 230px;
+	border: 1px solid #000;
+}
+.countdown {
+
+}
+.countdown .cd-digit {
+	float: left;
+	margin-left: 20px;
+}
+
+.countdownlive {
+	display:none;
 }
