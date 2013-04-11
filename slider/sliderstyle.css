@@ -5,11 +5,11 @@ body {
 #countdownslider {
 	margin: 20px auto;
 	width: 200px;
-	background-color: #ddddfd;
+	background-color: rgb(207, 207, 207);
 	height: 230px;
 	border: 2px solid #fafafa;
 	position: relative;
-	border-radius: 8px;
+	border-radius: 15px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
 	border-bottom: 1px solid #fafafa;
@@ -101,34 +101,45 @@ body {
 
 }
 .controls a {
+	display: block;
 	text-decoration: none;
 	color: #fff;
-	margin: 5px;
-	text-shadow: 0px 1px 4px;
+	text-shadow: 0px -1px 0px #999;
+	font-size: 45px;
+	padding: 0 9px;
+}
+.controls a:active{ 
+	text-shadow: 1px -2px 0px #555;
 }
 .controls > div {
 	float:left;
 	background-color: #ddddfd;
 	color: #fff;
-	font-size: 45px;
-
-	padding: 4px;
 }
 
 #sliderprev {
+	float: left;
 	width: 48px;
 	text-align: left;
 	border-right: 1px solid #fafafa;
+	background-image: -webkit-linear-gradient(top, rgb(225,242,250) 2%, rgb(148,142,148) 76%, rgb(87,87,87) 100%);
 }
 #slidernext {
+	display: block;
 	float: right;
 	width: 48px;
 	text-align: right;
 	border-left: 1px solid #fafafa;
+	background-image: -webkit-linear-gradient(top, rgb(225,242,250) 2%, rgb(148,142,148) 76%, rgb(87,87,87) 100%);
 }
 #sliderpager {
 	font-size: 18px;
 	text-align: center;
-	width: 77px;
+	width: 102px;
+	height: 34px;
 	padding-top: 17px;
+	background-image: -webkit-linear-gradient(top, rgb(225,242,250) 2%, rgb(148,142,148) 76%, rgb(87,87,87) 100%);
+}
+#slidernext:active, #sliderprev:active {
+	background-image: -webkit-linear-gradient(bottom, rgb(225,242,250) 2%, rgb(148,142,148) 76%, rgb(87,87,87) 100%);
 }

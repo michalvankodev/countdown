@@ -126,5 +126,15 @@ $(document).ready(function()
 		$('.bxslider').bxSlider(sliderOptions);
 
 
+	}).fail(function ()
+	{
+		var failText = $('<div>',
+		{
+			'class': 'failstory',
+			text: 'Error loading coming up matches',
+		});
+		$('#countdownslider').html(failText);
+		$
 	});
+
 });
