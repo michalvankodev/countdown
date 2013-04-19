@@ -22,7 +22,7 @@ $(document).ready(function()
 			nextSelector: '#slidernext',
 			prevSelector: '#sliderprev',
 			nextText: '>',
-	  		prevText: '<',
+			prevText: '<',
 		};
 
 		
@@ -96,21 +96,21 @@ $(document).ready(function()
 			var cOptions =
 			{
 				dString: 'd',
-			    hString: 'h',
-			    mString: 'm',
-			    sString: 's',
-	            dStringSingle: 'd',
-		        hStringSingle: 'h',
-		        mStringSingle: 'm',
-		        sStringSingle: 's',
-		        dateTo: startDate,
+				hString: 'h',
+				mString: 'm',
+				sPString: 's',
+				dStringSingle: 'd',
+				hStringSingle: 'h',
+				mStringSingle: 'm',
+				sStringSingle: 's',
+				dateTo: startDate,
 
-		        // SET element to display after countdown ends
-		        onCountDownEnd: function()
-			    {
+				// SET element to display after countdown ends
+				onCountDownEnd: function()
+				{
 					$(this).hide();
 					$('.countdownlive', $(this).parent()).show();
-			    }
+				}
 			}
 
 			// Start countdown
