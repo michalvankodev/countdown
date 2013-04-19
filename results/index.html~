@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hover Menu</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#" class="onpage"> Results</a></li>
+			<li><a href="../navigation/index.html">Awesome Navigation</a></li>
+			<li><a href="../countdown.html">Less awesome countdown</a></li>
+			<li><a href="../slider/index.html">Slider</a></li>
+		</ul>
+	</nav>
+	<header>
+		<h1>My new awesome page</h1>
+	</header>
+	<section id="results">
+		<header>
+			<h1>League</h1>
+			<select id="leagues"></select>
+			<select id="team"></select>
+			<select id="date"></select>
+		</header>
+		
+	</section>
+	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="applications.js"></script>
+</body>
+</html>
