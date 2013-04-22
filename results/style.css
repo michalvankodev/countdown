@@ -47,7 +47,7 @@ nav li a:hover, nav .onpage {
 #results {
 	max-width: 1000px;
 	width: 90%;
-	background-color: #ddd;
+	background-color: rgb(241, 241, 241);
 	margin: 5px auto;
 	padding: 30px;
 	min-height: 800px;
