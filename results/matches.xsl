@@ -5,7 +5,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions"
 >
 
 <xsl:template match="/">
-    <xsl:for-each select="//match" name="match">
+  <!--  <xsl:for-each select="//match" name="match">
 		<xsl:if test="contains(attribute::status, 'Played')">
 			<match>
 				<teamA><xsl:value-of select="attribute::team_A_name" /></teamA>
@@ -15,12 +15,11 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions"
 				<fsB><xsl:value-of select="attribute::fs_B"/></fsB>
 			</match>
 		</xsl:if> 
-    </xsl:for-each>
-	<xsl:for-each select="distinct-values(//match/attribute::team_A_name)" name="teams">
+    </xsl:for-each>-->
+	<xsl:for-each select="//match/@team_A_name" name="teams">
 		<team>
-			<xsl:value-of select="attribute::team_A_name" />
+			<xsl:value-of select="." />
 		</team>
-	 
     </xsl:for-each>
 </xsl:template>
 
