@@ -40,8 +40,7 @@ $(document).ready(function()
 		var seasonId = $(this).val();
 		$.ajax('http://ness-test.tutoky.com/get_matches&type=season&id='+ seasonId + '&detailed=yes.xml').done(function(seasonData)
 		{
-			shit = seasonData;
-			var matchesXml = shit;
+			var matchesXml = seasonData;
 			console.log(matchesXml);
 			$.ajax('matches.xsl').done (function(matchesData)
 			{
@@ -50,8 +49,16 @@ $(document).ready(function()
 				console.log(matchesXml);
 				var matchProc = new XSLTProcessor();
 				matchProc.importStylesheet(matchesXsl);
-				 resultDocument = matchProc.transformToFragment(matchesXml, document);
+				resultDocument = matchProc.transformToFragment(matchesXml, document);
 				console.log(resultDocument);
+				lolo =  $('team', $(resultDocument).children());
+				
+				lolo.each(function()
+					{
+						console.log($(this).text());
+					});
+				
+				
 			});
 
 			
