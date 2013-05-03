@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-xmlns:fn="http://www.w3.org/2005/xpath-functions"
->
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template match="/">
-    <xsl:for-each select="gsmrs/competition/season" name="comp">
+    <xsl:for-each select="gsmrs/competition/season">
 		<xsl:if test="contains(attribute::name, '2013')">
 			<option>
 				<xsl:attribute name="value">

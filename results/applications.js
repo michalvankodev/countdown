@@ -1,11 +1,17 @@
 $(document).ready(function()
 {
-	$.ajax('seasons.xml').done(function(data)
+	$.ajax({
+	url: 'seasons.xml',
+	dataType: "xml"
+	}).done(function(data)
 	{
-		var seasonsXml = $.parseXML(data);
-		$.ajax('seasonsfilter.xsl').done(function(xsldata)
+		var seasonsXml = data;
+		$.ajax({
+		url: 'seasonsfilter.xsl',
+		dataType: "xml"
+		}).done(function(xsldata)
 		{
-			var seasonsXsl = $.parseXML(xsldata);
+			var seasonsXsl = xsldata;
 			var xsltProcessor=new XSLTProcessor();
 			xsltProcessor.importStylesheet(seasonsXsl);
 			var resultDocument = xsltProcessor.transformToFragment(seasonsXml, document);
@@ -38,11 +44,17 @@ $(document).ready(function()
 	$('#leagues').change(function()
 	{
 		var seasonId = $(this).val();
-		$.ajax('http://ness-test.tutoky.com/get_matches&type=season&id='+ seasonId + '&detailed=yes.xml').done(function(seasonData)
+		$.ajax({
+		url: 'http://ness-test.tutoky.com/get_matches&type=season&id='+ seasonId + '&detailed=yes.xml',
+		dataType: 'xml'
+		}).done(function(seasonData)
 		{
 			var matchesXml = seasonData;
 			console.log(matchesXml);
-			$.ajax('matches.xsl').done (function(matchesData)
+			$.ajax({
+			url: 'matches.xsl',
+			dataType: 'xml'
+			}).done (function(matchesData)
 			{
 				var matchesXsl = $.parseXML(matchesData);
 				console.log(matchesXsl);
