@@ -129,8 +129,8 @@ $(document).ready(function()
 
 		var select = "//match[@status='Played']"+filterDate+filterTeam+"/@date_utc[generate-id() = generate-id(key('ddates',.)[1])]";
 		
-		$('variable[name="mojdruhyselect"]', matchesXsl).attr('select', "//match[@status='Played'][@date_utc = $datenow]"+filterTeam);
-		$('variable[name="mojselect"]', matchesXsl).attr('select', select);
+		$('[name="mojdruhyselect"]', matchesXsl).attr('select', "//match[@status='Played'][@date_utc = $datenow]"+filterTeam);
+		$('[name="mojselect"]', matchesXsl).attr('select', select);
 
 		var x = new XSLTProcessor();
 		x.importStylesheet(matchesXsl);
@@ -207,11 +207,12 @@ $(document).ready(function()
 		dataType: "xml"
 		}).done(function(infoxsl)
 		{
+			var newxls = infoxsl;
 			var select="//match[@match_id = " + matchId + "]";
-			$('variable[name="matchpath"]', infoxsl).attr('select', select);
+			$('[name="matchpath"]', newxls).attr('select', select);
 
 			var x = new XSLTProcessor();
-			x.importStylesheet(infoxsl);
+			x.importStylesheet(newxls);
 			returnElements  = x.transformToFragment(matchesXml, document);
 			appendant.html(returnElements);
 
