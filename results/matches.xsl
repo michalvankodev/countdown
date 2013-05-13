@@ -7,6 +7,7 @@
 	<xsl:variable
 		name="mojselect"
 		select="//match[@status='Played']/@date_utc[generate-id() = generate-id(key('ddates',.)[1])]"/>
+
 		
 	<xsl:template match="/">
 		<season>
@@ -18,17 +19,22 @@
 			<matches>
 				<xsl:for-each select="$mojselect">
 					<xsl:sort select="." order="descending"/>
+					<xsl:if test="not(position() > 10)">
+					<xsl:variable name="datenow" select="."/>
+					<xsl:variable name="mojdruhyselect"
+						select="//match[@status='Played'][@date_utc = $datenow]" />
 					<table>
 						<tr>
 							<th colspan="3">
 								<xsl:value-of select="//competition/@name"/>
 							</th>
-							<th colspan="2">
+							<th colspan="4">
 								<xsl:value-of select="."/>
 							</th>
 						</tr>
-					<xsl:apply-templates select="../." />
+						<xsl:apply-templates select="$mojdruhyselect" />
 					</table>
+					</xsl:if>
 				</xsl:for-each>
 			</matches>
 			
@@ -58,12 +64,20 @@
 	</xsl:template>
 	<xsl:template match="match">
 		<tr>
+			<td class="time"><xsl:value-of select="@time_utc" /></td>
 			<td class="homeTeam"><xsl:value-of select="@team_A_name" /></td>
 			<td class="homeScore"><xsl:value-of select="@fs_A" /></td>
 			<td class="vs"> : </td>
 			<td class="awayScore"><xsl:value-of select="@fs_B" /></td>
 			<td class="awayTeam"><xsl:value-of select="@team_B_name" /></td>
+			<td class="details"><button>
+			<xsl:attribute name="value">
+				<xsl:value-of select="@match_id"/>
+			</xsl:attribute>
+				Details
+			</button></td>
 		</tr>
+
 	</xsl:template>    
 	
 </xsl:stylesheet>

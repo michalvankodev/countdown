@@ -9,9 +9,8 @@ body > header  h1{
 	color: #eee;
 }
 nav {
-	display: display;
 	position: fixed;
-	background-color: rgb(46, 46, 46);
+	background-color: rgba(46, 46, 46, 0.82);
 	margin: 0 auto;
 	left: 2%;
 	top: 0;
@@ -22,6 +21,7 @@ nav {
 	border-bottom-right-radius: 28px;
 	width: 95%;
 	max-height: 90px;
+	z-index: 1;
 }
 nav ul {
 	margin: 0;
@@ -62,4 +62,102 @@ nav li a:hover, nav .onpage {
 }
 #results select:last-child {
 	margin-right: 10px;
+}
+#results table {
+	border-collapse: collapse; 
+	margin-bottom: 22px;
+}
+#results table th {
+	color: rgb(102, 121, 124);
+}
+#results table .matchinfo {
+	display: none;
+}
+#results table .time {
+	text-align: left;
+	color: rgb(255, 255, 255);
+	font-size: 0.8em;
+	background-color: #333;
+	padding: 0px 7px;
+}
+#results table .homeTeam {
+	text-align: right;
+	width: 230px;
+	padding-right: 20px;
+	background-color: #fff;
+}
+#results table .homeScore {
+	text-align: right;
+	color: #ddd;
+	background-color: #333;
+	width: 27px;
+}
+#results table .vs {
+	text-align: center;
+	color: #ddd;
+	background-color: #333;
+	width: 10px;
+}
+#results table .awayScore {
+	text-align: left;
+	color: #ddd;
+	background-color: #333;
+	width: 27px;
+
+}
+#results table .awayTeam {
+	text-align: left;
+	width: 230px;
+	padding-left: 20px;
+	background-color: #fff;
+}
+#results table tr {
+	height:20px;
+	border-bottom: 1px solid rgb(184, 184, 184);
+}
+#results table .details {
+    background-color: #fff;
+}
+#results table .details a {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: rgb(29, 10, 255);
+    padding-right: 8px;
+}
+#results button {
+	border: 0;
+	box-shadow: 1px 1px 3px rgb(65, 128, 128);
+	color: rgb(45, 67, 235);
+	background-color: rgb(231, 253, 253);
+	border-radius: 8px;
+}
+#results button:hover {
+	cursor: pointer;
+}
+#results button:active {
+	box-shadow: -1px -1px 2px rgb(65, 128, 128);
+}
+#results .matchDetails {
+	position: absolute;
+	width: 490px;
+	margin-left: 68px;
+	background-color: #fff;
+	margin-top: -24px;
+	border: 3px solid #333;
+	border-radius: 30px;
+	padding: 13px;
+	display: none;
+}
+.matchDetails {
+	font-size: 0.8em;
+}
+.matchDetails table {
+	width: 100%;
+}
+.matchDetails table td{
+	padding: 9px;
+}
+.matchDetails .middleColumn {
+	text-align: center;
+	font-weight: bold;
 }

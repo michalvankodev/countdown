@@ -54,7 +54,7 @@ $(document).ready(function()
 		}).done(function(seasonData)
 		{
 			matchesXml = seasonData;
-			console.log(matchesXml);
+
 			$.ajax({
 			url: 'matches.xsl',
 			dataType: 'xml'
@@ -110,6 +110,7 @@ $(document).ready(function()
 	{
 
 		$('#results > table').remove();
+		$('#results p.nomatch').remove();
 		var filterTeam = '';
 		var filterDate = '';
 		var selectedTeam = $('#team').val();
@@ -118,6 +119,7 @@ $(document).ready(function()
 		if (selectedTeam != '' && selectedTeam != 'all')
 		{
 			filterTeam = "[@team_A_name = '"+ selectedTeam +"' or @team_B_name = '"+ selectedTeam +"']";
+			
 		}
 
 		if (selectedDate != '' && selectedDate != 'all')
@@ -125,26 +127,107 @@ $(document).ready(function()
 			filterDate = "[@date_utc = '"+ selectedDate +"']";
 		}
 
-		var select = "//match[@status='Played']"+filterTeam+filterDate+"/@date_utc[generate-id() = generate-id(key('ddates',.)[1])]"
-
-		console.log(matchesXsl);
+		var select = "//match[@status='Played']"+filterDate+filterTeam+"/@date_utc[generate-id() = generate-id(key('ddates',.)[1])]";
+		
+		$('variable[name="mojdruhyselect"]', matchesXsl).attr('select', "//match[@status='Played'][@date_utc = $datenow]"+filterTeam);
 		$('variable[name="mojselect"]', matchesXsl).attr('select', select);
 
-		console.log(matchesXml);
-		newXml = matchesXml;
-		console.l
-		console.log(matchesXsl);
 		var x = new XSLTProcessor();
 		x.importStylesheet(matchesXsl);
-		displayMatches = x.transformToFragment(newXml, document);
+		displayMatches = x.transformToFragment(matchesXml, document);
 
 		 
-		console.log(displayMatches);
 		var tables = $('matches table', $(displayMatches).children());
 
-		console.log(tables);
-		$('#results').append(tables);
-		
+		tables.each(function()
+		{	
+			var rows = $('tr', this);
+			rows.each(function()
+			{
+				var utcTime = $('.time', this).text();
+				var utcT = utcTime.split(":");
+
+				var userTime = new Date();
+				userTime.setUTCHours(utcT[0]);
+				userTime.setUTCMinutes(utcT[1]);
+
+				$('.time', this).text(userTime.toLocaleTimeString().substr(0,5));
+
+			});
+
+		});
+
+
+		if (tables.length > 0)
+			$('#results').append(tables);
+
+		else 
+		{
+			noMatchError = $('<p>', {
+				"class" : "nomatch",
+				text: "No matches to display"
+			});
+			$('#results').append(noMatchError);
+		}
+
+
+		$('#results button').click(function()
+		{	
+			var existingDiv = $('.matchDetails', $(this).parent());
+
+			if (existingDiv.length == 0)
+			{
+				var newDiv = $('<div>',{
+					"class" : "matchDetails",
+					text: "Loading match info" 
+				});
+				$(this).after(newDiv);
+				$('#results .matchDetails').slideUp();
+				newDiv.slideDown();
+				getMatchInfo($(this).val(), newDiv);
+
+			}
+			else 
+			{
+				$('#results .matchDetails').not(existingDiv).slideUp();
+				existingDiv.slideToggle();
+			}
+
+
+		});
 
 	}
+
+	function getMatchInfo(matchId, appendant)
+	{
+		var returnElements;
+
+		$.ajax({
+		url: 'matchinfo.xsl',
+		dataType: "xml"
+		}).done(function(infoxsl)
+		{
+			var select="//match[@match_id = " + matchId + "]";
+			$('variable[name="matchpath"]', infoxsl).attr('select', select);
+
+			var x = new XSLTProcessor();
+			x.importStylesheet(infoxsl);
+			returnElements  = x.transformToFragment(matchesXml, document);
+			appendant.html(returnElements);
+
+		}).fail(function() {
+			var returnElements = $('<p>',
+			{
+				text: 'Error while loading match info',
+				'class': 'error'
+			});
+			appendant.html(returnElements);
+		
+		});
+		
+	}
+
+
+
+
 });
